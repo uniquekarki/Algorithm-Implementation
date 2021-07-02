@@ -1,0 +1,50 @@
+class Stack:
+
+    def __init__(self,size):
+        self.size = size
+        self.top = -1
+        self.arr = [None]*size
+    
+    def is_empty(self):
+        if self.top==-1:
+            print("Your stack is starving. It's empty!")
+            return True
+        else:
+            return False
+    
+    def is_full(self):
+        print(self.top)
+        print(self.size)
+        if self.top == self.size-1:
+            print("AHHH... Stack is already full!!!")
+            return True
+        else:
+            return False
+    
+    def push(self, elem):
+        if self.is_full():
+            pass
+        else:
+            self.top+=1
+            self.arr[self.top]=elem
+            print(f"Successfully added {elem} to the stack")
+            _ = input("Press Enter to continue")
+    
+    def pop(self):
+        if self.is_empty():
+            pass
+        else:
+            print(f"Kicking out {self.arr[self.top]} from stack")
+            self.arr[self.top]=None
+            self.top-=1
+            _ = input("Press Enter to continue")
+    
+    def print_all(self):
+        if self.is_empty():
+            _ = input("Press Enter to continue")
+            pass
+        else:
+            print('Your stack is:')
+            str1 = '|'.join(filter(None, map(str, self.arr)))
+            print(str1)
+            _ = input("Press Enter to continue")
