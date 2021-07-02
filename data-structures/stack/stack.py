@@ -13,21 +13,21 @@ class Stack:
             return False
     
     def is_full(self):
-        print(self.top)
-        print(self.size)
-        if self.top == self.size-1:
+        if self.top == (self.size-1):
             print("AHHH... Stack is already full!!!")
             return True
         else:
             return False
     
-    def push(self, elem):
+    def push(self):
         if self.is_full():
             pass
         else:
+            temp = int(input("Enter the number you want to push: "))
+
             self.top+=1
-            self.arr[self.top]=elem
-            print(f"Successfully added {elem} to the stack")
+            self.arr[self.top]=temp
+            print(f"Successfully added {temp} to the stack")
             _ = input("Press Enter to continue")
     
     def pop(self):
