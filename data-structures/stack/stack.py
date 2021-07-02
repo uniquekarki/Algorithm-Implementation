@@ -20,31 +20,20 @@ class Stack:
             return False
     
     def push(self):
-        if self.is_full():
-            pass
-        else:
-            temp = int(input("Enter the number you want to push: "))
-
-            self.top+=1
-            self.arr[self.top]=temp
-            print(f"Successfully added {temp} to the stack")
-            _ = input("Press Enter to continue")
+        temp = int(input("Enter the number you want to push: "))
+        self.top+=1
+        self.arr[self.top]=temp
+        print(f"Successfully added {temp} to the stack")
+        _ = input("Press Enter to continue")
     
     def pop(self):
-        if self.is_empty():
-            pass
-        else:
-            print(f"Kicking out {self.arr[self.top]} from stack")
-            self.arr[self.top]=None
-            self.top-=1
-            _ = input("Press Enter to continue")
+        print(f"Kicking out {self.arr[self.top]} from stack")
+        self.arr[self.top]=None
+        self.top-=1
+        _ = input("Press Enter to continue")
     
     def print_all(self):
-        if self.is_empty():
-            _ = input("Press Enter to continue")
-            pass
-        else:
-            print('Your stack is:')
-            str1 = '|'.join(filter(None, map(str, self.arr)))
-            print(str1)
-            _ = input("Press Enter to continue")
+        print('Your stack is:')
+        str1 = '|'.join(filter(None, map(str, self.arr)))
+        print(str1)
+        _ = input("Press Enter to continue")
