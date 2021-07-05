@@ -1,6 +1,5 @@
 from queue import Queue
 from os import system
-from typing import Sized
 
 if __name__ == '__main__':
     system('clear')
