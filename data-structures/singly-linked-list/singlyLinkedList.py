@@ -14,12 +14,16 @@ class SinglyLL:
             return False
 
     def traversal(self, pos):
-        currNode = self.head
-        start = 0
-        while start != pos:
-            currNode= currNode.next
-            start+=1
-        return currNode
+        if pos<0:
+            return None
+        
+        else:
+            currNode = self.head
+            start = 0
+            while start != pos:
+                currNode= currNode.next
+                start+=1
+            return currNode
     
     def addToHead(self, data):
         newNode = Node(data)
@@ -57,6 +61,7 @@ class SinglyLL:
     def removeFromTail(self):
         if self.is_empty():
             print("Nothing in the end to kick out!")
+            pass
         else:
             predNode = self.head
             nextNode = predNode.next
@@ -67,15 +72,12 @@ class SinglyLL:
             print(f"Removed {nextNode.data} from the end.")
             del nextNode.data
             del nextNode.next
-        
+    
     
     def delete(self,curr, pred):
-        if self.is_empty():
-            print("Nothing in the beggining to kick out!")
-        else:
-            pred.next = curr.next
-            del curr.data
-            del curr.next
+        pred.next = curr.next
+        del curr.data
+        del curr.next
 
     def printLL(self):
         currNode = self.head
@@ -93,3 +95,6 @@ class SinglyLL:
             else:
                 string = '-->'.join(arr)
                 print("HEAD"+"-->"+string)
+
+def title():
+    print("----------------SINGLY LINKED LIST----------------")
