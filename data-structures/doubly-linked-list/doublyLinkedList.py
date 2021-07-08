@@ -5,7 +5,7 @@ class Node:
         self.next = None
 
 class DoublyLL:
-    def __init(self):
+    def __init__(self):
         self.head = None
 
     def is_empty(self):
@@ -33,15 +33,12 @@ class DoublyLL:
             self.head = node
 
     def addToTail(self,data):
-        if self.is_empty():
-            self.addToHead(data)
-        else:
-            node = Node(data)
-            currNode = self.head
-            while currNode.next != None:
-                currNode = currNode.next
-            currNode.next = node
-            node.prev = currNode
+        node = Node(data)
+        currNode = self.head
+        while currNode.next != None:
+            currNode = currNode.next
+        currNode.next = node
+        node.prev = currNode
     
     def add(self,curr,data):
         node = None(data)
@@ -53,22 +50,30 @@ class DoublyLL:
 
     def removeFromHead(self):
         currNode = self.head
+        print(f"Successfully kicked out {currNode.data} from the beginning")
         self.head = currNode.next
         del currNode.data
         del currNode.next
         del currNode.prev
-        currNode = self.head
-        currNode.prev = None
+        if self.head ==None:
+            pass
+        else:
+            currNode = self.head
+            currNode.prev = None
 
     def removeFromTail(self):
         currNode = self.head
-        while currNode.next != None:
-            currNode = currNode.next
-        prevNode = currNode.prev
-        prevNode.next = None
-        del currNode.data
-        del currNode.next
-        del currNode.prev
+        if currNode.next ==None and currNode.prev ==None:
+            self.removeFromHead()
+        else:
+            while currNode.next != None:
+                currNode = currNode.next
+            prevNode = currNode.prev
+            prevNode.next = None
+            print(f"Successfully kicked out {currNode.data} from the end")
+            del currNode.data
+            del currNode.next
+            del currNode.prev
 
     def remove(self,curr):
         if curr.next ==None:
@@ -82,7 +87,7 @@ class DoublyLL:
             del curr.prev
             del curr.next
 
-    def printAll(self):
+    def printLL(self):
         if self.is_empty():
             print("Your Linked List Is Empty :(")
             pass
@@ -98,3 +103,6 @@ class DoublyLL:
             else:
                 string = '<-->'.join(arr)
                 print("HEAD"+"<-->"+string)
+
+def title():
+    print("----------------Doubly Linked List----------------")
