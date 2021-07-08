@@ -34,10 +34,10 @@ class SinglyLL:
             self.head = newNode
 
     def addToTail(self,data):
-        newNode = Node(data)
         if self.is_empty():
             self.addToHead(data)
         else:
+            newNode = Node(data)
             currNode = self.head
             while currNode.next !=None:
                 currNode = currNode.next
