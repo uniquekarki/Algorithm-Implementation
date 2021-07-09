@@ -25,6 +25,7 @@ if __name__=='__main__':
             data = int(input("Enter the data you want to add: "))
             d.addToHead(data)
             print(f"Successfully added {data} at the beginning")
+            _ = input("Enter any key to continue...")
         elif n==2:
             system("clear")
             title()
@@ -33,44 +34,56 @@ if __name__=='__main__':
             curr = d.traversal(pos-1)
             d.add(curr,data)
             print(f"Successfully added {data} to the {pos}-th position")
+            _ = input("Enter any key to continue...")
         elif n==3:
             system("clear")
             title()
             data = int(input("Enter the data you want to add: "))
             if d.is_empty():
                 d.addToHead(data)
+                print(f"Successfully added {data} at the end.")
+                _ = input("Enter any key to continue...")
             else:
                 d.addToTail(data)
-            print(f"Successfully added {data} at the end.")
+                print(f"Successfully added {data} at the end.")
+                _ = input("Enter any key to continue...")
         elif n==4:
             system("clear")
             title()
             if d.is_empty():
                 d.addToHead(data)
+                _ = input("Enter any key to continue...")
             else:
                 d.removeFromHead()
+                _ = input("Enter any key to continue...")
         elif n==5:
             system("clear")
             title()
             if d.is_empty():
                 print("Nothing to kick out")
+                _ = input("Enter any key to continue...")
                 pass
             pos = int(input("Enter the position of the node to remove: "))
             curr = d.traversal(pos-1)
             if curr.prev==None and curr.next==None:
                 d.removeFromHead()
+                _ = input("Enter any key to continue...")
             else:
                 print(f"Successfully Kicked out {curr.data} from the {pos}-th position")
                 d.remove(curr)
+                _ = input("Enter any key to continue...")
         elif n==6:
             system("clear")
             title()
             if d.is_empty():
                 print("Nothing to kick out")
+                _ = input("Enter any key to continue...")
                 pass
             else:
                 d.removeFromTail()
+                _ = input("Enter any key to continue...")
         elif n==7:
             system("clear")
             title()
             d.printLL()
+            _ = input("Enter any key to continue...")
