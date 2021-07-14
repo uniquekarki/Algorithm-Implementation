@@ -41,7 +41,7 @@ class DoublyLL:
         node.prev = currNode
     
     def add(self,curr,data):
-        node = None(data)
+        node = Node(data)
         prec = curr.prev
         node.next = curr
         node.prev = prec
@@ -99,10 +99,10 @@ class DoublyLL:
                 currNode = currNode.next
             arr.append(str(currNode.data))
             if len(arr)==1:
-                print("HEAD"+"<-->"+arr[0])
+                print("HEAD"+"-->"+arr[0])
             else:
                 string = '<-->'.join(arr)
-                print("HEAD"+"<-->"+string)
+                print("HEAD"+"-->"+string)
 
 def title():
     print("----------------Doubly Linked List----------------")

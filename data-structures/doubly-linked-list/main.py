@@ -32,9 +32,15 @@ if __name__=='__main__':
             pos = int(input("Enter the position you want your data in: "))
             data = int(input("Enter the data you want to add: "))
             curr = d.traversal(pos-1)
-            d.add(curr,data)
-            print(f"Successfully added {data} to the {pos}-th position")
-            _ = input("Enter any key to continue...")
+            s = str(type(curr))
+            if s =="<class 'NoneType'>":
+                d.addToTail(data)
+                print(f"Successfully added {data} at the end.")
+                _ = input("Enter any key to continue...")
+            else:
+                d.add(curr,data)
+                print(f"Successfully added {data} to the {pos}-th position")
+                _ = input("Enter any key to continue...")
         elif n==3:
             system("clear")
             title()
