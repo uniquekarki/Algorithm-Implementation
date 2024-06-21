@@ -29,10 +29,20 @@ class Heap():
         
         last_elem = self.heap.pop() # Handles if multiple elements in a heap
         self.heap[0] = last_elem
-        self.heapify_down(0)
+        self.heapify_down(0, len(self.heap))
 
-    def heapify_down(self, i):
-        n = len(self.heap)
+    def heap_sort(self):
+        if not self.heap:
+            print('Empty heap')
+            return
+
+        last_elem = len(self.heap) - 1
+        while last_elem > 0:
+            self.heap[0], self.heap[last_elem] = self.heap[last_elem], self.heap[0]
+            self.heapify_down(0, last_elem) # Excludes last element in the heapify down method
+            last_elem -= 1
+
+    def heapify_down(self, i, n):
         while i < n:
             smallest = i
             left = (2 * i) + 1 # Formula for left child in 0-index heap
@@ -75,4 +85,7 @@ if __name__ == '__main__':
     h.show_heap()
 
     h.delete()
+    h.show_heap()
+
+    h.heap_sort()
     h.show_heap()
